@@ -1,34 +1,17 @@
-# zaportal
+# ZAPortal
 
-## Project setup
-```
-npm install
-```
+*The zero-trust management platform provides users with a control interface with low thresholds.*
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+**Work in progress.**
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Scripts
 
-### Run your end-to-end tests
+```shell
+npm install # Project setup
+npm run serve # Compiles and hot-reloads for development
+npm run build # Compiles and minifies for production
+npm run test:unit # Run your unit tests
+npm run test:e2e # Run your end-to-end tests
+npm run lint # Lints and fixes files
 ```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
