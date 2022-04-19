@@ -2,11 +2,18 @@
   <v-app-bar app flat class="transparent app-bar" :class="$vuetify.theme.dark ? 'dark-line':'light-line'">
     <v-container class="d-flex justify-space-between">
       <div class="d-flex align-center">
-        <img src="~@/assets/logo.png" alt="logo" height="50px" class="mr-10">
+        <img src="~@/assets/logo.png"
+             alt="logo"
+             height="50px"
+             class="mr-10 cur-p"
+             @click="$router.push('/')"
+        />
         <v-btn
-            v-for="(v,k) in ['Network', 'Team', 'Devices', 'Policies', 'Settings']"
+            rounded
+            v-for="(v,k) in ['clients', 'servers', 'resources', 'relay']"
             :key="k"
-            class="font-weight-regular text-subtitle-1 text-capitalize"
+            class="font-weight-regular text-subtitle-1 text-capitalize mr-5"
+            :to="{name: v}"
             text
         >{{ v }}
         </v-btn>
@@ -21,7 +28,9 @@
         <v-btn icon :color="$vuetify.theme.dark ? 'white' : 'black'">
           <v-icon>mdi-github</v-icon>
         </v-btn>
-        <v-btn icon :color="$vuetify.theme.dark ? 'white' : 'black'" @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+        <v-btn icon
+:color="$vuetify.theme.dark ? 'white' : 'black'"
+               @click="$vuetify.theme.dark = !$vuetify.theme.dark">
           <v-icon v-if="$vuetify.theme.dark">mdi-weather-sunny</v-icon>
           <v-icon v-else>mdi-weather-night</v-icon>
         </v-btn>
