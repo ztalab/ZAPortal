@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <top-bar/>
-    <v-main :class="{homepage: $route.name === 'home'}">
+    <v-main class="body-bg">
       <v-container>
         <router-view/>
       </v-container>
@@ -50,7 +50,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.homepage {
+.body-bg {
   background: url("~@/assets/bg.png") no-repeat;
   background-size: cover;
 }
