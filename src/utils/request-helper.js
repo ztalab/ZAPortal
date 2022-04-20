@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 /**
  * @param service AxiosInstance
  * @param flag String
@@ -28,6 +30,7 @@ export function requestInterceptors(service, flag = '') {
       return Promise.reject(response)
     },
     error => {
+      Vue.$message.warning(error.message)
       return Promise.reject(error)
     }
   )
