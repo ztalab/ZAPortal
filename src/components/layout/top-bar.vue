@@ -19,17 +19,20 @@
         </v-btn>
       </div>
       <div class="d-flex align-center">
-        <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
+        <v-btn href="https://github.com/ztalab/ZASentinel" target="_blank" text>
           <span class="font-weight-regular text-capitalize text-caption">Download</span>
         </v-btn>
-        <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
+        <v-btn href="https://www.ztalab.xyz" target="_blank" text>
           <span class="font-weight-regular text-capitalize text-caption">Setup Guide</span>
         </v-btn>
-        <v-btn icon :color="$vuetify.theme.dark ? 'white' : 'black'">
+        <v-btn icon
+               href="https://github.com/ztalab"
+               target="_blank"
+               :color="$vuetify.theme.dark ? 'white' : 'black'">
           <v-icon>mdi-github</v-icon>
         </v-btn>
         <v-btn icon
-:color="$vuetify.theme.dark ? 'white' : 'black'"
+               :color="$vuetify.theme.dark ? 'white' : 'black'"
                @click="$vuetify.theme.dark = !$vuetify.theme.dark">
           <v-icon v-if="$vuetify.theme.dark">mdi-weather-sunny</v-icon>
           <v-icon v-else>mdi-weather-night</v-icon>
