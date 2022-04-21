@@ -23,6 +23,12 @@
                 required
             ></v-text-field>
             <v-text-field
+                v-model="form.host"
+                label="Host"
+                :rules="rule.host"
+                required
+            ></v-text-field>
+            <v-text-field
                 v-model.number="form.port"
                 label="Listen port"
                 :min="1"
@@ -30,29 +36,24 @@
                 type="number"
                 required
             ></v-text-field>
-            <v-select
-                v-model="form.server_id"
-                label="Server"
-                :items="serverItems"
-                item-text="name"
-                item-value="ID"
-                :loading="loadingServer"
-            >
-            </v-select>
             <v-text-field
-                v-model="form.target"
-                :rules="rule.target"
-                label="Resource"
-                required
-                hint="HOST:PORT"
-            ></v-text-field>
-            <v-text-field
-                v-model.number="form.expire"
-                label="Valid days"
+                v-model.number="form.out_port"
+                label="Expose port"
                 :min="1"
+                :max="65535"
                 type="number"
                 required
             ></v-text-field>
+            <v-select
+                v-model="form.resource_id"
+                label="Resources"
+                :items="resourceItems"
+                item-text="name"
+                item-value="ID"
+                :loading="loadingResource"
+                multiple
+            >
+            </v-select>
           </v-container>
         </v-form>
       </v-card-text>
@@ -70,52 +71,60 @@
   </v-dialog>
 </template>
 <script>
-import { fetchZeroAccessServers, postZeroAccessClient } from '@/api'
+import { fetchZeroAccessResources, postZeroAccessServer } from '@/api'
 
 export default {
   data: () => ({
     dialog: false,
     valid: false,
-    serverItems: [],
-    loadingServer: false,
+    resourceItems: [],
+    loadingResource: false,
     submitting: false,
     form: {
+      host: '',
       name: '',
       port: null,
-      server_id: null,
-      target: '',
-      expire: 30
+      out_port: null,
+      resource_id: null
     },
     rule: {
       name: [
         v => !!v || 'Name is required'
       ],
-      target: [
-        v => !!v || 'Resource is required',
-        v => v.includes(':') || 'IP:HOST'
+      host: [
+        v => !!v || 'Host is required'
+      ],
+      port: [
+        v => !!v || 'Port is required'
+      ],
+      out_port: [
+        v => !!v || 'Expose port is required'
+      ],
+      resource_id: [
+        v => !!v || 'Resource is required'
       ]
     }
   }),
   created() {
-    this.getServerOptions()
+    this.getResourceOptions()
   },
   methods: {
-    getServerOptions() {
-      this.loadingServer = true
-      // FIXME implement the lazy load server options
-      fetchZeroAccessServers({ limit_num: 999 }).then(res => {
-        this.serverItems = (res.data.list || [])
+    getResourceOptions() {
+      this.loadingResource = true
+      // FIXME implement the lazy load resource options
+      fetchZeroAccessResources({ limit_num: 999 }).then(res => {
+        this.resourceItems = (res.data.list || [])
       }).finally(() => {
-        this.loadingServer = false
+        this.loadingResource = false
       })
     },
     handleSubmit() {
       this.submitting = true
 
       const form = { ...this.form }
-      const [host, port] = form.target.split(':')
-      form.target = { host, port: +port }
-      postZeroAccessClient(form).then(res => {
+      form.resource_id = form.resource_id?.join(',')
+
+      postZeroAccessServer(form).then(res => {
         this.$emit('on-success')
         this.$message.success()
         this.dialog = false

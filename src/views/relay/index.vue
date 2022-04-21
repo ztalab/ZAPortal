@@ -21,7 +21,7 @@
               @keydown.enter="handleSearch"
           ></v-text-field>
           <v-spacer></v-spacer>
-          <form-dialog @on-success="handleSearch"/>
+          <form-dialog/>
         </v-toolbar>
       </template>
       <template v-slot:item.target="{item}">{{ item.target.host + ':' + item.target.port }}</template>

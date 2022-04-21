@@ -116,7 +116,6 @@ export default {
       const [host, port] = form.target.split(':')
       form.target = { host, port: +port }
       postZeroAccessClient(form).then(res => {
-        this.$emit('on-success')
         this.$message.success()
         this.dialog = false
       }).finally(() => {
