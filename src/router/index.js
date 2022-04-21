@@ -17,17 +17,17 @@ const routes = [
   {
     path: '/servers',
     name: 'servers',
-    component: () => import('@/views/clients')
+    component: () => import('@/views/servers')
   },
   {
     path: '/resources',
     name: 'resources',
-    component: () => import('@/views/clients')
+    component: () => import('@/views/resources')
   },
   {
     path: '/relay',
     name: 'relay',
-    component: () => import('@/views/clients')
+    component: () => import('@/views/relay')
   }
 ]
 

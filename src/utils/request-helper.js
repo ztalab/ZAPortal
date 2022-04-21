@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { EventBus } from '@/utils/event-bus'
 
 /**
  * @param service AxiosInstance
@@ -30,7 +30,7 @@ export function requestInterceptors(service, flag = '') {
       return Promise.reject(response)
     },
     error => {
-      Vue.$message.warning(error.message)
+      EventBus.$emit('app.message', error.message, 'error')
       return Promise.reject(error)
     }
   )
