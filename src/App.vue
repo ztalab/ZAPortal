@@ -1,32 +1,57 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app>
+    <top-bar/>
+    <v-main class="body-bg">
+      <v-container>
+        <router-view/>
+      </v-container>
+    </v-main>
+    <v-snackbar
+        right
+        top
+        :color="level"
+        v-model="snackbar"
+    >
+      {{ msg }}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+            text
+            v-bind="attrs"
+            @click="snackbar = false"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </template>
+    </v-snackbar>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import TopBar from '@/components/layout/top-bar'
+import { EventBus } from '@/utils/event-bus'
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  components: { TopBar },
+  data: () => ({
+    snackbar: false,
+    msg: '',
+    level: ''
+  }),
+  mounted() {
+    EventBus.$on('app.message', this.handleMessage)
+  },
+  methods: {
+    handleMessage(msg, level) {
+      this.snackbar = true
+      this.msg = msg
+      this.level = level
     }
   }
+}
+</script>
+<style lang="scss" scoped>
+.body-bg {
+  background: url("~@/assets/bg.png") no-repeat;
+  background-size: cover;
 }
 </style>
