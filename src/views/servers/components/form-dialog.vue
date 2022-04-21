@@ -11,7 +11,7 @@
     </template>
     <v-card>
       <v-card-title>
-        <span class="text-h5">New client</span>
+        <span class="text-h5">New server</span>
       </v-card-title>
       <v-card-text>
         <v-form v-model="valid">
