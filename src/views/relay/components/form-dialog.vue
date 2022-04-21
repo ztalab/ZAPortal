@@ -23,6 +23,12 @@
                 required
             ></v-text-field>
             <v-text-field
+                v-model="form.host"
+                label="Host"
+                :rules="rule.host"
+                required
+            ></v-text-field>
+            <v-text-field
                 v-model.number="form.port"
                 label="Listen port"
                 :min="1"
@@ -30,26 +36,11 @@
                 type="number"
                 required
             ></v-text-field>
-            <v-select
-                v-model="form.server_id"
-                label="Server"
-                :items="serverItems"
-                item-text="name"
-                item-value="ID"
-                :loading="loadingServer"
-            >
-            </v-select>
             <v-text-field
-                v-model="form.target"
-                :rules="rule.target"
-                label="Resource"
-                required
-                hint="HOST:PORT"
-            ></v-text-field>
-            <v-text-field
-                v-model.number="form.expire"
-                label="Valid days"
+                v-model.number="form.out_port"
+                label="Expose port"
                 :min="1"
+                :max="65535"
                 type="number"
                 required
             ></v-text-field>
@@ -70,7 +61,7 @@
   </v-dialog>
 </template>
 <script>
-import { fetchZeroAccessServers, postZeroAccessClient } from '@/api'
+import { postZeroAccessRelay } from '@/api'
 
 export default {
   data: () => ({
@@ -81,41 +72,32 @@ export default {
     submitting: false,
     form: {
       name: '',
+      host: '',
       port: null,
-      server_id: null,
-      target: '',
-      expire: 30
+      out_port: null
     },
     rule: {
       name: [
         v => !!v || 'Name is required'
       ],
-      target: [
-        v => !!v || 'Resource is required',
-        v => v.includes(':') || 'IP:HOST'
+      host: [
+        v => !!v || 'Host is required'
+      ],
+      port: [
+        v => !!v || 'Port is required'
+      ],
+      out_port: [
+        v => !!v || 'Expose port is required'
       ]
     }
   }),
-  created() {
-    this.getServerOptions()
-  },
   methods: {
-    getServerOptions() {
-      this.loadingServer = true
-      // FIXME implement the lazy load server options
-      fetchZeroAccessServers({ limit_num: 999 }).then(res => {
-        this.serverItems = (res.data.list || [])
-      }).finally(() => {
-        this.loadingServer = false
-      })
-    },
     handleSubmit() {
       this.submitting = true
 
       const form = { ...this.form }
-      const [host, port] = form.target.split(':')
-      form.target = { host, port: +port }
-      postZeroAccessClient(form).then(res => {
+      postZeroAccessRelay(form).then(res => {
+        this.$emit('on-success')
         this.$message.success()
         this.dialog = false
       }).finally(() => {

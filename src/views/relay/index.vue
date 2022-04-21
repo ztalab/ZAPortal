@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="font-weight-thin text-h3 mt-10">{{ total }} Clients</h3>
+    <h3 class="font-weight-thin text-h3 mt-10">{{ total }} Relays</h3>
     <v-data-table
         :headers="tableHeaders"
         :items="tableItems"
@@ -21,10 +21,9 @@
               @keydown.enter="handleSearch"
           ></v-text-field>
           <v-spacer></v-spacer>
-          <form-dialog/>
+          <form-dialog @on-success="handleSearch"/>
         </v-toolbar>
       </template>
-      <template v-slot:item.target="{item}">{{ item.target.host + ':' + item.target.port }}</template>
       <template v-slot:item.actions="{ item }">
         <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
         <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
@@ -35,7 +34,7 @@
 </template>
 <script>
 import FormDialog from './components/form-dialog'
-import { fetchZeroAccessClients } from '@/api'
+import { fetchZeroAccessRelays } from '@/api'
 
 export default {
   components: { FormDialog },
@@ -47,12 +46,13 @@ export default {
       limit_num: 15
     },
     tableHeaders: [
-      { text: 'Name', align: 'start', sortable: true, value: 'name' },
-      { text: 'Listen port', sortable: true, value: 'port' },
-      { text: 'Valid days', sortable: true, value: 'expire' },
-      { text: 'Resource', sortable: true, value: 'target' },
-      { text: 'Created at', sortable: true, value: 'CreatedAt' },
-      { text: 'Updated at', sortable: true, value: 'UpdatedAt' }
+      { text: 'Name', align: 'start', value: 'name' },
+      { text: 'Listen port', value: 'port' },
+      { text: 'Expose port', value: 'out_port' },
+      { text: 'Host', value: 'host' },
+      { text: 'UUID', value: 'uuid' },
+      { text: 'Created at', value: 'CreatedAt' },
+      { text: 'Updated at', value: 'UpdatedAt' }
     ],
     tableItems: [],
     total: 0
@@ -67,7 +67,7 @@ export default {
     },
     getTableItems() {
       this.loading = true
-      fetchZeroAccessClients(this.query).then(res => {
+      fetchZeroAccessRelays(this.query).then(res => {
         this.tableItems = res.data.list || []
         this.total = res.data.paginate.total
       }).finally(() => {
