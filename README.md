@@ -6,6 +6,9 @@
 
 <p align="center">
   <a href="https://github.com/ztalab/ZAPortal/actions">
+    <img src="https://github.com/ztalab/ZAPortal/actions/workflows/release.yml/badge.svg" height="18"
+         alt="release status"></a>
+  <a href="https://github.com/ztalab/ZAPortal/actions">
     <img src="https://github.com/ztalab/ZAPortal/actions/workflows/lint.yml/badge.svg" height="18"
          alt="lint status"></a>
   <a href="https://github.com/ztalab/ZAPortal/blob/main/LICENSE">
