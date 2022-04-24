@@ -1,12 +1,9 @@
-# This is a basic workflow to help you get started with Actions
+name: release
 
-name: build
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    tags:
+      - "v.*.*.*"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,18 +26,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
             
-      - name: install Dependencies
+      - name: install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
         
       - name: run build
         run: npm run build
         
-      - name: zip dist
+      - name: zip dist folder
         run: zip -r dist.zip dist
         
-      - name: Release
+      - name: upload release
         uses: softprops/action-gh-release@v1
-        #if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: dist.zip
