@@ -32,7 +32,7 @@ export function requestInterceptors(service, flag = '') {
     error => {
       const statusCode = error.response.status
 
-      if (statusCode === 401 && window.location.pathname === '/login') { // ignore error message
+      if (statusCode === 401 && ['/login', '/'].includes(window.location.pathname)) { // ignore error message
         return Promise.reject(error)
       }
 
