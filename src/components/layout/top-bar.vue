@@ -46,7 +46,19 @@
               color="primary"
               size="48"
           >
-            <v-img v-if="avatar" :src="avatar" width="48"/>
+            <v-img v-if="avatar" :src="avatar" width="48">
+              <template v-slot:placeholder>
+                <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                >
+                  <v-progress-circular
+                      indeterminate
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+            </v-img>
             <span v-else>{{ shortEmail }}</span>
           </v-avatar>
         </template>
