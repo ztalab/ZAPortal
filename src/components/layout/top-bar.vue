@@ -25,7 +25,7 @@
         <v-btn href="https://www.ztalab.xyz" target="_blank" text>
           <span class="font-weight-regular text-capitalize text-caption">Setup Guide</span>
         </v-btn>
-        <v-btn :to="{name: 'login'}" text>
+        <v-btn :to="{name: 'login'}" text v-if="!isLogin">
           <span class="font-weight-regular text-capitalize text-caption">Sign in</span>
         </v-btn>
         <v-btn icon
@@ -40,10 +40,35 @@
           <v-icon v-if="$vuetify.theme.dark">mdi-weather-sunny</v-icon>
           <v-icon v-else>mdi-weather-night</v-icon>
         </v-btn>
+        <template v-if="isLogin">
+          <v-divider vertical inset class="ml-5 mr-5"/>
+          <v-avatar
+              color="primary"
+              size="48"
+          >
+            <v-img v-if="avatar" :src="avatar" width="48"/>
+            <span v-else>{{ shortEmail }}</span>
+          </v-avatar>
+        </template>
       </div>
     </v-container>
   </v-app-bar>
 </template>
+<script>
+export default {
+  computed: {
+    avatar() {
+      return this.$store.state.user.avatar
+    },
+    shortEmail() {
+      return this.$store.state.user.email.substring(0, 2)
+    },
+    isLogin() {
+      return !!this.shortEmail
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 .app-bar {
   backdrop-filter: blur(15px);
