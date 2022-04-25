@@ -25,6 +25,9 @@
         <v-btn href="https://www.ztalab.xyz" target="_blank" text>
           <span class="font-weight-regular text-capitalize text-caption">Setup Guide</span>
         </v-btn>
+        <v-btn :to="{name: 'login'}" text v-if="!isLogin">
+          <span class="font-weight-regular text-capitalize text-caption">Sign in</span>
+        </v-btn>
         <v-btn icon
                href="https://github.com/ztalab"
                target="_blank"
@@ -37,10 +40,62 @@
           <v-icon v-if="$vuetify.theme.dark">mdi-weather-sunny</v-icon>
           <v-icon v-else>mdi-weather-night</v-icon>
         </v-btn>
+        <template v-if="isLogin">
+          <v-divider vertical inset class="ml-5 mr-5"/>
+          <v-menu offset-y rounded>
+            <template v-slot:activator="{ on, attrs }">
+              <v-avatar
+                  color="primary"
+                  size="48"
+                  v-bind="attrs"
+                  v-on="on"
+              >
+                <v-img v-if="avatar" :src="avatar" width="48">
+                  <template v-slot:placeholder>
+                    <v-row class="fill-height ma-0" align="center" justify="center">
+                      <v-progress-circular
+                          indeterminate
+                      ></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
+                <span v-else>{{ shortEmail }}</span>
+              </v-avatar>
+            </template>
+            <v-list dense>
+              <v-list-item link>
+                <v-list-item-content @click="handleLogout">Logout</v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </template>
       </div>
     </v-container>
   </v-app-bar>
 </template>
+<script>
+import cookie from 'js-cookie'
+
+export default {
+  computed: {
+    avatar() {
+      return this.$store.state.user.avatar
+    },
+    shortEmail() {
+      return this.$store.state.user.email.substring(0, 2)
+    },
+    isLogin() {
+      return !!this.shortEmail
+    }
+  },
+  methods: {
+    handleLogout() {
+      cookie.remove('ZTA_session')
+      window.location.href = '/'
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 .app-bar {
   backdrop-filter: blur(15px);

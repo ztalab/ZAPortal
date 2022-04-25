@@ -1,5 +1,11 @@
 <template>
   <v-app>
+    <v-progress-linear
+        indeterminate
+        fix
+        :active="loading"
+        height="1"
+    ></v-progress-linear>
     <top-bar/>
     <v-main class="body-bg">
       <v-container>
@@ -7,6 +13,7 @@
       </v-container>
     </v-main>
     <v-snackbar
+        app
         right
         top
         :color="level"
@@ -34,17 +41,22 @@ export default {
   components: { TopBar },
   data: () => ({
     snackbar: false,
+    loading: false,
     msg: '',
     level: ''
   }),
   mounted() {
     EventBus.$on('app.message', this.handleMessage)
+    EventBus.$on('app.loading', this.handleAppLoading)
   },
   methods: {
     handleMessage(msg, level) {
       this.snackbar = true
       this.msg = msg
       this.level = level
+    },
+    handleAppLoading(flag) {
+      this.loading = flag
     }
   }
 }
