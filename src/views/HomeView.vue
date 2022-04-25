@@ -10,11 +10,11 @@
     </p>
     <div class="mt-15">
       <v-btn x-large color="primary" href="https://www.ztalab.xyz/" target="_blank">
-        <v-icon>mdi-home</v-icon>
+        <v-icon class="mr-5">mdi-home</v-icon>
         Website
       </v-btn>
       <v-btn x-large class="ml-15" href="https://github.com/ztalab" target="_blank">
-        <v-icon>mdi-github</v-icon>
+        <v-icon class="mr-5">mdi-github</v-icon>
         Github
       </v-btn>
     </div>

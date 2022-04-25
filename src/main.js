@@ -4,13 +4,17 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 
-import './styles/index.scss'
+// Auth and permission
+import './permission'
 
-import { EventBus } from './utils/event-bus'
+// global css
+import './styles/index.scss'
 
 Vue.config.productionTip = false
 
 // mount function to Vue prototype, so you can use this.$message component
+import { EventBus } from './utils/event-bus'
+
 Vue.prototype.$message = {
   success: (msg = 'Success') => EventBus.$emit('app.message', msg, 'success'),
   error: (msg = 'Error') => EventBus.$emit('app.message', msg, 'error'),
