@@ -21,7 +21,7 @@ export default new Vuex.Store({
         if (state.user.email) resolve()
 
         fetchUser().then(res => {
-          commit('SET_USERNAME', res.data)
+          commit('SET_USER', res.data)
           resolve()
         }).catch(error => {
           reject(error)
