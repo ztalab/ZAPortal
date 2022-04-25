@@ -30,7 +30,13 @@ export function requestInterceptors(service, flag = '') {
       return Promise.reject(response)
     },
     error => {
-      EventBus.$emit('app.message', error.message, 'error')
+      const statusCode = error.response.status
+
+      if (statusCode === 401 && window.location.pathname === '/login') { // ignore error message
+        return Promise.reject(error)
+      }
+
+      EventBus.$emit('app.message', `[${statusCode}] ${error.message}`, 'error')
       return Promise.reject(error)
     }
   )
