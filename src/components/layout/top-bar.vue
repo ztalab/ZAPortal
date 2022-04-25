@@ -25,6 +25,9 @@
         <v-btn href="https://www.ztalab.xyz" target="_blank" text>
           <span class="font-weight-regular text-capitalize text-caption">Setup Guide</span>
         </v-btn>
+        <v-btn :to="{name: 'login'}" text>
+          <span class="font-weight-regular text-capitalize text-caption">Sign in</span>
+        </v-btn>
         <v-btn icon
                href="https://github.com/ztalab"
                target="_blank"

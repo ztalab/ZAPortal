@@ -4,7 +4,7 @@ import { requestInterceptors } from './request-helper'
 
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://192.168.2.80:8111/api/v1',
+  baseURL: process.env.VUE_APP_BASE_URL,
   // withCredentials: false, // send cookies when cross-domain requests
   // transformRequest: [function(data, headers) {
   //   return qs.stringify(data)
