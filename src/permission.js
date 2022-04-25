@@ -10,11 +10,9 @@ router.beforeEach(async(to, from, next) => {
 
   // goto login if needed
   try {
-    if (!whiteList.includes(to.name)) {
-      await store.dispatch('getUserInfo')
-    }
+    await store.dispatch('getUserInfo')
   } catch (e) {
-    if (to.name !== 'login') {
+    if (!whiteList.includes(to.name)) {
       EventBus.$emit('app.message', 'Need login', 'warning')
       hideLoading()
       next({ name: 'login' })
