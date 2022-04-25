@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     user: {
       avatar: '',
-      email: ''
+      email: '123'
     }
   }, getters: {}, mutations: {
     SET_USER(state, info) {
