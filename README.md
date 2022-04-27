@@ -45,7 +45,7 @@ npm install
 # Compiles and hot-reloads for development
 npm run serve
 
-# Compiles and minifies for productio
+# Compiles and minifies for production
 npm run build
 ```
 
@@ -62,5 +62,5 @@ If you want to report a bug or request a new feature. Free feel to open a [new i
 
 ### Pull Requests
 
-If you want to modify ZAPortal, this guideline may be useful for you [CONTRIBUTING](https://github.com/ztalab/ZAPortal/blob/master/CONTRIBUTING.md)
+If you want to modify ZAPortal, this guideline may be useful for you [CONTRIBUTING](https://github.com/ztalab/ZAPortal/blob/main/CONTRIBUTING.md)
 
