@@ -36,7 +36,7 @@
         </v-btn>
         <v-btn icon
                :color="$vuetify.theme.dark ? 'white' : 'black'"
-               @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+               @click="handleToggleTheme">
           <v-icon v-if="$vuetify.theme.dark">mdi-weather-sunny</v-icon>
           <v-icon v-else>mdi-weather-night</v-icon>
         </v-btn>
@@ -75,6 +75,7 @@
 </template>
 <script>
 import cookie from 'js-cookie'
+import { getCache, setCache } from '@/utils/cache'
 
 export default {
   computed: {
@@ -88,10 +89,17 @@ export default {
       return !!this.shortEmail
     }
   },
+  created() {
+    this.$vuetify.theme.dark = getCache('theme_dark')
+  },
   methods: {
     handleLogout() {
       cookie.remove('ZTA_session')
       window.location.href = '/'
+    },
+    handleToggleTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      setCache('theme_dark', this.$vuetify.theme.dark)
     }
   }
 }

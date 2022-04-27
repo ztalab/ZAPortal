@@ -27,7 +27,8 @@ export default {
   methods: {
     async connectWallet() {
       const provider = new ethers.providers.Web3Provider(window.ethereum)
-      await provider.send('wallet_requestPermissions', [{
+      // eth_requestAccounts can silent prompt
+      await provider.send('wallet_requestPermissions', [{ // prompts every time
         eth_accounts: {}
       }])
       const signer = provider.getSigner()
