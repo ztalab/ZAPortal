@@ -87,3 +87,11 @@ service.interceptors.response.use(
 | `app.message`   | global message box|
 | `app.loading`   | top page loading bar |
 
+
+## Mock
+
+Now you can use mock API to develop, which has been set as the default development API in `.env.development`.
+
+```dotenv
+VUE_APP_BASE_URL="https://531f6a00-a189-4209-a65c-f95e10e121cb.mock.pstmn.io/api/v1"
+```
