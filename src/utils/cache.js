@@ -6,12 +6,12 @@ export function setCache(k, v) {
   window.localStorage.setItem(k, content)
 }
 
-export function getCache(k) {
+export function getCache(k, defaultValue) {
   const content = window.localStorage.getItem(k)
   try {
     const obj = JSON.parse(content)
     return obj.value
   } catch (e) {
-    return content
+    return defaultValue === undefined ? content : defaultValue
   }
 }
