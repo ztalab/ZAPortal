@@ -90,7 +90,7 @@ export default {
     }
   },
   created() {
-    this.$vuetify.theme.dark = getCache('theme_dark')
+    this.$vuetify.theme.dark = getCache('theme_dark', true)
   },
   methods: {
     handleLogout() {
