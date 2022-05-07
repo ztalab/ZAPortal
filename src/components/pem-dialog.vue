@@ -1,13 +1,21 @@
 <template>
   <v-dialog v-model="dialog" scrollable max-width="600px">
     <template v-slot:activator="{ on, attrs }">
-      <v-icon small v-bind="attrs" v-on="on">mdi-eye</v-icon>
+      <v-icon small v-bind="attrs" v-on="on">mdi-certificate</v-icon>
     </template>
     <v-card>
-      <v-card-title>CA PEM</v-card-title>
+      <v-card-title>
+        <v-tabs v-model="tab" background-color="transparent" color="basil" grow>
+          <v-tab v-for="item in items" :key="item">{{ item }}</v-tab>
+        </v-tabs>
+      </v-card-title>
       <v-divider></v-divider>
-      <v-card-text style="height: 350px;" v-if="data">
-        <pre class="text-caption">{{ data.ca_pem }}</pre>
+      <v-card-text style="height: 350px;">
+        <v-tabs-items v-model="tab">
+          <v-tab-item v-for="item in items" :key="item">
+            <pre class="text-caption">{{ item === 'CA PEM' ? data.ca_pem : data.cert_pem }}</pre>
+          </v-tab-item>
+        </v-tabs-items>
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
@@ -16,7 +24,7 @@
         <v-btn text
                color="primary"
                v-if="data"
-               v-clipboard:copy="data.ca_pem"
+               v-clipboard:copy="tab === 0 ? data.ca_pem : data.cert_pem"
                v-clipboard:success="onCopy"
                v-clipboard:error="onError">Copy
         </v-btn>
@@ -34,7 +42,9 @@ export default {
   },
   data() {
     return {
-      dialog: false
+      dialog: false,
+      tab: null,
+      items: ['CA PEM', 'CERT PEM']
     }
   },
   methods: {

@@ -29,8 +29,8 @@
         <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
         <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
       </template>
-      <template v-slot:item.ca_pem="{ item }">
-        <pem-dialog :data="item"/>
+      <template v-slot:item.action="{ item }">
+        <pem-dialog :data="item" v-bind="attrs" v-on="on"/>
       </template>
       <template v-slot:no-data>No data</template>
     </v-data-table>
@@ -57,7 +57,7 @@ export default {
       { text: 'Resource', sortable: true, value: 'target' },
       { text: 'Created at', sortable: true, value: 'CreatedAt' },
       { text: 'Updated at', sortable: true, value: 'UpdatedAt' },
-      { text: 'PEM', value: 'ca_pem' }
+      { text: 'Action', value: 'action' }
     ],
     tableItems: [],
     total: 0
