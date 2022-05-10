@@ -24,20 +24,20 @@
           <form-dialog @on-success="handleSearch"/>
         </v-toolbar>
       </template>
-      <template v-slot:item.actions="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
-        <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
+      <template v-slot:item.action="{ item }">
+        <confirm-dialog @on-confirm="handleDelete" :data="item"/>
       </template>
       <template v-slot:no-data>No data</template>
     </v-data-table>
   </div>
 </template>
 <script>
+import ConfirmDialog from '@/components/confirm-dialog'
 import FormDialog from './components/form-dialog'
-import { fetchZeroAccessResources } from '@/api'
+import { deleteZeroAccessResource, fetchZeroAccessResources } from '@/api'
 
 export default {
-  components: { FormDialog },
+  components: { FormDialog, ConfirmDialog },
   data: () => ({
     loading: false,
     query: {
@@ -51,7 +51,8 @@ export default {
       { text: 'Host', value: 'host' },
       { text: 'Port', value: 'port' },
       { text: 'Created at', value: 'CreatedAt' },
-      { text: 'Updated at', value: 'UpdatedAt' }
+      { text: 'Updated at', value: 'UpdatedAt' },
+      { text: 'Action', value: 'action' }
     ],
     tableItems: [],
     total: 0
@@ -76,6 +77,15 @@ export default {
     handleCount(v) {
       this.query.limit_num = v
       this.handleSearch()
+    },
+    handleDelete(ref) {
+      const item = ref.data
+
+      deleteZeroAccessResource(item.ID).then(_ => {
+        ref.$close()
+      }).finally(() => {
+        this.handleSearch()
+      })
     }
   }
 }
