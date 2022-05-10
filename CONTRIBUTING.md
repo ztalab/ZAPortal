@@ -95,3 +95,8 @@ Now you can use mock API to develop, which has been set as the default developme
 ```dotenv
 VUE_APP_BASE_URL="https://531f6a00-a189-4209-a65c-f95e10e121cb.mock.pstmn.io/api/v1"
 ```
+And if you have your own backend api, you can use environment variable to override mock api, eg:
+
+```bash
+export VUE_APP_BASE_URL=http://YOURHOST/api/v1 && npm run serve 
+```

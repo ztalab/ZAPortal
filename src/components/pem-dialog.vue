@@ -21,8 +21,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn text color="primary" @click="dialog = false">Close</v-btn>
-        <v-btn text
-               color="primary"
+        <v-btn color="primary"
                v-if="data"
                v-clipboard:copy="tab === 0 ? data.ca_pem : data.cert_pem"
                v-clipboard:success="onCopy"
@@ -48,10 +47,10 @@ export default {
     }
   },
   methods: {
-    onCopy: function(e) {
+    onCopy() {
       this.$message.success('Copied success')
     },
-    onError: function(e) {
+    onError() {
       this.$message.error('Failed to copy texts')
     }
   }

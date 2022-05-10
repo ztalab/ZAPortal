@@ -30,7 +30,8 @@
         <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
       </template>
       <template v-slot:item.action="{ item }">
-        <pem-dialog :data="item" v-bind="attrs" v-on="on"/>
+        <pem-dialog :data="item"/>
+        <confirm-dialog @on-confirm="handleDelete" :data="item"/>
       </template>
       <template v-slot:no-data>No data</template>
     </v-data-table>
@@ -38,11 +39,12 @@
 </template>
 <script>
 import PemDialog from '@/components/pem-dialog'
+import ConfirmDialog from '@/components/confirm-dialog'
 import FormDialog from './components/form-dialog'
-import { fetchZeroAccessClients } from '@/api'
+import { deleteZeroAccessClient, fetchZeroAccessClients } from '@/api'
 
 export default {
-  components: { PemDialog, FormDialog },
+  components: { PemDialog, FormDialog, ConfirmDialog },
   data: () => ({
     loading: false,
     query: {
@@ -82,6 +84,15 @@ export default {
     handleCount(v) {
       this.query.limit_num = v
       this.handleSearch()
+    },
+    handleDelete(ref) {
+      const item = ref.data
+
+      deleteZeroAccessClient(item.ID).then(_ => {
+        ref.$close()
+      }).finally(() => {
+        this.handleSearch()
+      })
     }
   }
 }
