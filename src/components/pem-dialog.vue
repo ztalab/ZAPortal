@@ -13,7 +13,7 @@
       <v-card-text style="height: 350px;">
         <v-tabs-items v-model="tab">
           <v-tab-item v-for="item in items" :key="item">
-            <pre class="text-caption">{{ item === 'CA PEM' ? data.ca_pem : data.cert_pem }}</pre>
+            <pre class="text-caption">{{ getPemContent(item)  }}</pre>
           </v-tab-item>
         </v-tabs-items>
       </v-card-text>
@@ -43,7 +43,7 @@ export default {
     return {
       dialog: false,
       tab: null,
-      items: ['CA PEM', 'CERT PEM']
+      items: ['CA PEM', 'CERT PEM', 'KEY PEM']
     }
   },
   methods: {
@@ -52,6 +52,15 @@ export default {
     },
     onError() {
       this.$message.error('Failed to copy texts')
+    },
+    getPemContent(type) {
+      const map = {
+        'CA PEM': this.data.ca_pem,
+        'CERT PEM': this.data.cert_pem,
+        'KEY PEM': this.data.key_pem
+      }
+
+      return map[type] || `Unknown pem type: ${type}`
     }
   }
 }
