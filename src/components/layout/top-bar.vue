@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     handleLogout() {
-      cookie.remove('ZTA_session')
+      cookie.remove('zta')
       window.location.href = '/'
     },
     handleToggleTheme() {
