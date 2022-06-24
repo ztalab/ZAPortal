@@ -43,7 +43,7 @@ npm install
 npm run serve
 ```
 
-It bands to `localhost:8080` by default.
+It servers on `http://localhost:8080` by default.
 
 ## 🎁 Read More
 
