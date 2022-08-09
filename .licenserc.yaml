@@ -1,0 +1,16 @@
+header:
+  license:
+    spdx-id: Apache-2.0
+    copyright-owner: ztalab
+
+  paths-ignore:
+    - 'dist'
+    - 'LICENSE'
+    - '.gitignore'
+    - '.prettierrc'
+    - '.browserslistrc'
+    - 'node_modules'
+    - '**/*.md'
+    - '**/*.json'
+
+  comment: on-failure
