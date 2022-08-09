@@ -17,6 +17,7 @@ header:
   paths-ignore:
     - 'dist'
     - 'LICENSE'
+    - '.github'
     - '.gitignore'
     - '.prettierrc'
     - '.browserslistrc'
