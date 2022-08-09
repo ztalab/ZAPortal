@@ -8,7 +8,7 @@ whether you need to provide signoff for your commit. Please follow the instructi
 requests cannot be merged until the author(s) have provided signoff to fulfill the DCO requirement.
 You may find more information on the DCO requirements [below](#developer-certificate-of-origin-signing-your-work).
 
-This project has adopted the [Contributor Covenant Code of Conduct](https://github.com/ztalab/.github/blob/main/CODE-OF-CONDUCT.md).
+This project has adopted the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
 
 Contributions come in many forms: submitting issues, writing code, participating in discussions and community calls.
 
@@ -52,7 +52,7 @@ A good way to communicate before investing too much time is to create a "Work-in
 
 #### Every commit needs to be signed
 
-The Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project. Here is the full text of the [DCO](https://developercertificate.org/), reformatted for readability:
+The Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project. Here is the full text of the [DCO](https://github.com/ztalab/.github/blob/main/DCO.md), reformatted for readability:
 ```
 By making a contribution to this project, I certify that:
 
@@ -97,7 +97,7 @@ git push --force-with-lease <remote-name> <branch-name>
 
 ## Code of Conduct
 
-This project has adopted the [Contributor Covenant Code of Conduct](https://github.com/ztalab/.github/blob/main/CODE-OF-CONDUCT.md)
+This project has adopted the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md)
 
 ---
 
