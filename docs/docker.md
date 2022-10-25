@@ -18,8 +18,8 @@ You can visit http://127.0.0.1:9080
 
 ### Expose ports
 
-- 9080: frontend port
-- 80: backend port
+- `9080`: frontend port
+- `80`: backend port
 
 > Frontend will request `/api`, and will proxy by nginx, you can config it in `nginx.conf`
 
