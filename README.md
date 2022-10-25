@@ -74,5 +74,5 @@ If you want to report a bug or request a new feature. Free feel to open a [new i
 
 ### Pull Requests
 
-If you want to modify ZAPortal, this guideline may be useful for you [CONTRIBUTING](https://github.com/ztalab/ZAPortal/blob/main/CONTRIBUTING.md)
+If you want to modify ZAPortal, this guideline may be useful for you [CONTRIBUTING](https://github.com/ztalab/ZAPortal/blob/main/CONTRIBUTING.md).
 
