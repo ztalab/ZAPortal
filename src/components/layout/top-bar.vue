@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2022-present The Ztalab Authors.
+  ~ Copyright 2022-present The ZTDBP Authors.
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
@@ -32,17 +32,17 @@
         </v-btn>
       </div>
       <div class="d-flex align-center">
-        <v-btn href="https://github.com/ztalab/ZASentinel" target="_blank" text>
+        <v-btn href="https://github.com/ZTDBP/ZASentinel" target="_blank" text>
           <span class="font-weight-regular text-capitalize text-caption">Download</span>
         </v-btn>
-        <v-btn href="https://www.ztalab.xyz" target="_blank" text>
+        <v-btn href="https://www.ZTDBP.xyz" target="_blank" text>
           <span class="font-weight-regular text-capitalize text-caption">Setup Guide</span>
         </v-btn>
         <v-btn :to="{name: 'login'}" text v-if="!isLogin">
           <span class="font-weight-regular text-capitalize text-caption">Sign in</span>
         </v-btn>
         <v-btn icon
-               href="https://github.com/ztalab"
+               href="https://github.com/ZTDBP"
                target="_blank"
                :color="$vuetify.theme.dark ? 'white' : 'black'">
           <v-icon>mdi-github</v-icon>

@@ -5,23 +5,23 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ztalab/ZAPortal/actions">
-    <img src="https://github.com/ztalab/ZAPortal/actions/workflows/release.yml/badge.svg" height="18"
+  <a href="https://github.com/ZTDBP/ZAPortal/actions">
+    <img src="https://github.com/ZTDBP/ZAPortal/actions/workflows/release.yml/badge.svg" height="18"
          alt="release status"></a>
-  <a href="https://github.com/ztalab/ZAPortal/actions">
-    <img src="https://github.com/ztalab/ZAPortal/actions/workflows/lint.yml/badge.svg" height="18"
+  <a href="https://github.com/ZTDBP/ZAPortal/actions">
+    <img src="https://github.com/ZTDBP/ZAPortal/actions/workflows/lint.yml/badge.svg" height="18"
          alt="lint status"></a>
-  <a href="https://github.com/ztalab/ZAPortal/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/ztalab/ZAPortal?style=plastic" height="18"
+  <a href="https://github.com/ZTDBP/ZAPortal/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/ZTDBP/ZAPortal?style=plastic" height="18"
          alt="GitHub license"></a>
-  <a href="https://github.com/ztalab/ZAPortal/stargazers">
-    <img src="https://img.shields.io/github/stars/ztalab/ZAPortal?style=plastic" height="18"
+  <a href="https://github.com/ZTDBP/ZAPortal/stargazers">
+    <img src="https://img.shields.io/github/stars/ZTDBP/ZAPortal?style=plastic" height="18"
          alt="GitHub stars"></a>
-  <a href="https://github.com/ztalab/ZAPortal/issues">
-    <img src="https://img.shields.io/github/issues/ztalab/ZAPortal?style=plastic" height="18"
+  <a href="https://github.com/ZTDBP/ZAPortal/issues">
+    <img src="https://img.shields.io/github/issues/ZTDBP/ZAPortal?style=plastic" height="18"
          alt="GitHub issues"></a>
-  <a href="https://github.com/ztalab/ZAPortal/pulls">
-    <img src="https://img.shields.io/github/issues-pr/ZTALAB/ZAPortal?style=plastic" height="18"
+  <a href="https://github.com/ZTDBP/ZAPortal/pulls">
+    <img src="https://img.shields.io/github/issues-pr/ZTDBP/ZAPortal?style=plastic" height="18"
          alt="GitHub pull requests"></a>
 </p>
 
@@ -65,14 +65,14 @@ npm run build
 
 ### Discussions Page
 
-You can discuss or ask for help in [discussions](https://github.com/ztalab/ZAPortal/discussions).
+You can discuss or ask for help in [discussions](https://github.com/ZTDBP/ZAPortal/discussions).
 
 ## 😃 Contribute
 
 ### Bug Reports / Feature Requests
-If you want to report a bug or request a new feature. Free feel to open a [new issue](https://github.com/ztalab/ZAPortal/pulls).
+If you want to report a bug or request a new feature. Free feel to open a [new issue](https://github.com/ZTDBP/ZAPortal/pulls).
 
 ### Pull Requests
 
-If you want to modify ZAPortal, this guideline may be useful for you [CONTRIBUTING](https://github.com/ztalab/ZAPortal/blob/main/CONTRIBUTING.md)
+If you want to modify ZAPortal, this guideline may be useful for you [CONTRIBUTING](https://github.com/ZTDBP/ZAPortal/blob/main/CONTRIBUTING.md)
 

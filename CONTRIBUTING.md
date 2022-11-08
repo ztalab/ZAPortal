@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-Thank you for your interest in Ztalab!
+Thank you for your interest in ZTDBP!
 
 This project welcomes contributions and suggestions. Most contributions require you to signoff on your commits via 
 the Developer Certificate of Origin (DCO). When you submit a pull request, a DCO-bot will automatically determine 
@@ -12,7 +12,7 @@ This project has adopted the [Contributor Covenant Code of Conduct](CODE_OF_COND
 
 Contributions come in many forms: submitting issues, writing code, participating in discussions and community calls.
 
-This document provides the guidelines for how to contribute to the Ztalab project.
+This document provides the guidelines for how to contribute to the ZTDBP project.
 
 ## Issues
 
@@ -27,9 +27,9 @@ There are 4 types of issues:
 - Issue/Proposal: Used for items that propose a new idea or functionality. This allows feedback from others before code is written.
 - Issue/Question: Use this issue type, if you need help or have a question.
 
-## Contributing to Ztalab
+## Contributing to ZTDBP
 
-This section describes the guidelines for contributing code / docs to Ztalab.
+This section describes the guidelines for contributing code / docs to ZTDBP.
 
 ### Pull Requests
 
@@ -52,7 +52,7 @@ A good way to communicate before investing too much time is to create a "Work-in
 
 #### Every commit needs to be signed
 
-The Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project. Here is the full text of the [DCO](https://github.com/ztalab/.github/blob/main/DCO.md), reformatted for readability:
+The Developer Certificate of Origin (DCO) is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing to the project. Here is the full text of the [DCO](https://github.com/ZTDBP/.github/blob/main/DCO.md), reformatted for readability:
 ```
 By making a contribution to this project, I certify that:
 
