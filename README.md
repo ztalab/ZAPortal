@@ -1,6 +1,6 @@
 <p align="center">
 <img 
-    src="https://res.cloudinary.com/malloc/image/upload/v1649933054/github/logo_p8gyle.png" 
+    src="https://avatars.githubusercontent.com/u/112850393?s=200&v=4" 
     height="70" border="0" alt="IceFireDB">
 </p>
 
@@ -27,14 +27,9 @@
 
 🌈 _**ZAPortal** is a user-friendly UI portal that provides users with a control interface with low thresholds._ 🌈
 
-🖐️ **Work in progress.**
-
 ---
 
 <p float="left">
-<img height="100" alt="image" src="https://user-images.githubusercontent.com/9459488/165663549-ff4bbb5d-db8c-4bee-9eaa-0c49bba54aa1.png">
-
-<img height="100" alt="image" src="https://user-images.githubusercontent.com/9459488/165663563-5888b2d4-054b-466f-a974-29da8f935552.png">
     
 <img height="100" alt="image" src="https://user-images.githubusercontent.com/9459488/165664165-95a3b07b-0626-4dd1-aa01-3a98429a4569.png">
 
